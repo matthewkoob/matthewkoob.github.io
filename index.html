@@ -60,16 +60,18 @@
       display: block;
     }
 
-    .video-wrapper {
-      max-width: 650px;
-      margin: 32px auto 16px auto;
+    .video-block {
+      width: min(90vw, 900px);
+      max-width: none;
+      margin: 36px 0 24px 50%;
+      transform: translateX(-50%);
     }
 
     .project-video {
       width: 100%;
+      max-width: none;
       display: block;
       border-radius: 8px;
-      margin: 0;
     }
   </style>
 </head>
@@ -85,8 +87,8 @@
          alt="Driven double pendulum research poster">
   </div>
 
-  <div class="video-wrapper">
-    <video class="project-video" controls>
+  <div class="video-block">
+    <video class="project-video" controls preload="metadata">
       <source src="double_pendulum_this_one.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
