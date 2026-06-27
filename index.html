@@ -68,17 +68,8 @@
     .project-video {
       width: 100%;
       display: block;
-      background-color: transparent;
-      object-fit: contain;
       border-radius: 8px;
       margin: 0;
-    }
-
-    .video-note {
-      font-size: 0.9rem;
-      color: #aaaaaa;
-      text-align: center;
-      margin-top: 6px;
     }
   </style>
 </head>
@@ -95,41 +86,11 @@
   </div>
 
   <div class="video-wrapper">
-    <video
-      id="doublePendulumVideo"
-      class="project-video"
-      autoplay
-      loop
-      muted
-      playsinline
-      preload="auto"
-      disablepictureinpicture
-      oncontextmenu="return false;"
-    >
-      <source src="double_pendulum_video_silent.mp4" type="video/mp4">
+    <video class="project-video" controls>
+      <source src="double_pendulum_this_one.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-
-    <p class="video-note">Driven double pendulum experimental system in operation.</p>
   </div>
-
-  <script>
-    const video = document.getElementById("doublePendulumVideo");
-
-    if (video) {
-      video.muted = true;
-      video.defaultMuted = true;
-      video.volume = 0;
-      video.controls = false;
-
-      video.addEventListener("loadeddata", () => {
-        video.currentTime = 0.01;
-        video.play().catch(() => {});
-      });
-
-      video.play().catch(() => {});
-    }
-  </script>
 
   <p>
     Designed and built a driven double pendulum system for experimental study of nonlinear motion and chaos.
