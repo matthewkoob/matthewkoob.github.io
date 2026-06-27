@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Matthew Koob</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <style>
     body {
       font-family: system-ui, -apple-system, sans-serif;
@@ -41,17 +42,44 @@
       border-radius: 8px;
       margin: 12px 0;
     }
+
+    .projects-title {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .wide-image {
+      width: min(95vw, 1100px);
+      max-width: none;
+      margin-left: 50%;
+      transform: translateX(-50%);
+      display: block;
+    }
+
+    .image-note {
+      font-size: 0.9rem;
+      color: #aaaaaa;
+      text-align: center;
+      margin-top: 0;
+    }
   </style>
 </head>
 
 <body>
-  <h2>Projects</h2>
+  <h2 class="projects-title">Projects</h2>
 
   <h3>Driven Double Pendulum</h3>
 
-  <!-- Replace these filenames with your actual image/video filenames if needed -->
-  <img src="double_pendulum_poster_screenshot.png" alt="Driven double pendulum experimental setup">
-  <img src="double_pendulum_data.png" alt="Double pendulum chaotic motion data visualization">
+  <a href="double_pendulum_poster_screenshot.png" target="_blank">
+    <img class="wide-image"
+         src="double_pendulum_poster_screenshot.png"
+         alt="Driven double pendulum research poster">
+  </a>
+
+  <p class="image-note">Click the poster to view it full size.</p>
+
+  <img src="double_pendulum_data.png"
+       alt="Double pendulum chaotic motion data visualization">
 
   <p>
     Designed and built a driven double pendulum system for experimental study of nonlinear motion and chaos.
