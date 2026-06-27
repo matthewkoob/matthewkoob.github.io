@@ -67,7 +67,10 @@
 
     .project-video {
       width: 100%;
+      aspect-ratio: 16 / 9;
       display: block;
+      background-color: #000000;
+      object-fit: contain;
     }
   </style>
 </head>
@@ -84,11 +87,33 @@
   </div>
 
   <div class="video-wrapper">
-    <video class="project-video" autoplay loop muted playsinline oncontextmenu="return false;">
+    <video
+      class="project-video"
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="auto"
+      disablepictureinpicture
+      oncontextmenu="return false;"
+    >
       <source src="double_pendulum_video.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>
+
+  <script>
+    const video = document.querySelector(".project-video");
+
+    if (video) {
+      video.muted = true;
+      video.volume = 0;
+
+      video.play().catch(() => {
+        console.log("Autoplay blocked or video not loaded.");
+      });
+    }
+  </script>
 
   <p>
     Designed and built a driven double pendulum system for experimental study of nonlinear motion and chaos.
