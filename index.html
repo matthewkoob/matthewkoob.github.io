@@ -62,15 +62,40 @@
 
     .video-wrapper {
       max-width: 650px;
-      margin: 28px auto 12px auto;
+      margin: 32px auto 16px auto;
+      position: relative;
+      background-color: #000000;
+      border-radius: 8px;
+      overflow: hidden;
     }
 
     .project-video {
       width: 100%;
-      aspect-ratio: 16 / 9;
       display: block;
       background-color: #000000;
       object-fit: contain;
+      border-radius: 8px;
+      margin: 0;
+    }
+
+    .play-button {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      padding: 12px 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #ffffff;
+      background-color: rgba(0, 0, 0, 0.72);
+      border: 1px solid #ffffff;
+      border-radius: 8px;
+      cursor: pointer;
+      display: none;
+    }
+
+    .play-button:hover {
+      background-color: rgba(255, 255, 255, 0.15);
     }
   </style>
 </head>
@@ -88,30 +113,62 @@
 
   <div class="video-wrapper">
     <video
+      id="doublePendulumVideo"
       class="project-video"
       autoplay
       loop
       muted
       playsinline
-      preload="auto"
+      preload="metadata"
       disablepictureinpicture
       oncontextmenu="return false;"
     >
       <source src="double_pendulum_video.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
+
+    <button id="playVideoButton" class="play-button">
+      Play Video
+    </button>
   </div>
 
   <script>
-    const video = document.querySelector(".project-video");
+    const video = document.getElementById("doublePendulumVideo");
+    const playButton = document.getElementById("playVideoButton");
 
     if (video) {
       video.muted = true;
+      video.defaultMuted = true;
       video.volume = 0;
 
-      video.play().catch(() => {
-        console.log("Autoplay blocked or video not loaded.");
+      const tryPlay = () => {
+        video.play()
+          .then(() => {
+            playButton.style.display = "none";
+          })
+          .catch(() => {
+            playButton.style.display = "block";
+          });
+      };
+
+      video.addEventListener("loadedmetadata", tryPlay);
+      video.addEventListener("canplay", tryPlay);
+
+      playButton.addEventListener("click", () => {
+        video.muted = true;
+        video.defaultMuted = true;
+        video.volume = 0;
+
+        video.play()
+          .then(() => {
+            playButton.style.display = "none";
+          })
+          .catch(() => {
+            playButton.style.display = "block";
+          });
       });
+
+      tryPlay();
     }
   </script>
 
