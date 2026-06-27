@@ -48,19 +48,17 @@
       margin-bottom: 2.5rem;
     }
 
-    .wide-image {
+    .wide-block {
       width: min(95vw, 1100px);
       max-width: none;
       margin-left: 50%;
       transform: translateX(-50%);
-      display: block;
     }
 
-    .image-note {
-      font-size: 0.9rem;
-      color: #aaaaaa;
-      text-align: center;
-      margin-top: 0;
+    .wide-media {
+      width: 100%;
+      max-width: none;
+      display: block;
     }
   </style>
 </head>
@@ -68,18 +66,18 @@
 <body>
   <h2 class="projects-title">Projects</h2>
 
-  <h3>Driven Double Pendulum</h3>
+  <div class="wide-block">
+    <h3>Driven Double Pendulum</h3>
 
-  <a href="double_pendulum_poster_screenshot.png" target="_blank">
-    <img class="wide-image"
+    <img class="wide-media"
          src="double_pendulum_poster_screenshot.png"
          alt="Driven double pendulum research poster">
-  </a>
 
-  <p class="image-note">Click the poster to view it full size.</p>
-
-  <img src="double_pendulum_data.png"
-       alt="Double pendulum chaotic motion data visualization">
+    <video class="wide-media" controls muted>
+      <source src="double_pendulum_video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
 
   <p>
     Designed and built a driven double pendulum system for experimental study of nonlinear motion and chaos.
@@ -158,10 +156,3 @@
   <br><br>
 
   <h2>Contact</h2>
-
-  <p>
-    Email: <a href="mailto:koob3090@stthomas.edu">koob3090@stthomas.edu</a><br>
-    LinkedIn: <a href="https://www.linkedin.com/in/mjkoob">linkedin.com/in/mjkoob</a><br>
-  </p>
-</body>
-</html>
