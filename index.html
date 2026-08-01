@@ -16,7 +16,7 @@
       color: #e6e6e6;
     }
 
-    h1, h2, h3 {
+    h1, h2, h3, h4 {
       color: #ffffff;
     }
 
@@ -54,24 +54,37 @@
       transform: translateX(-50%);
     }
 
-    .wide-media {
-      width: 100%;
-      max-width: none;
-      display: block;
-    }
-
-    .video-block {
-      width: min(90vw, 1100px);
-      max-width: none;
-      margin: 36px 0 24px 50%;
-      transform: translateX(-50%);
-    }
-
-    .project-video {
-      width: 100%;
-      max-width: none;
-      display: block;
+    .image-placeholder {
+      min-height: 220px;
+      margin: 20px 0;
+      border: 2px dashed #666666;
       border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      color: #aaaaaa;
+      text-align: center;
+      background-color: #191919;
+    }
+
+    details {
+      margin: 20px 0;
+      border: 1px solid #383838;
+      border-radius: 8px;
+      background-color: #181818;
+    }
+
+    summary {
+      padding: 14px 18px;
+      color: #ffffff;
+      font-size: 1.15rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .dropdown-content {
+      padding: 0 18px 18px;
     }
   </style>
 </head>
@@ -79,52 +92,208 @@
 <body>
   <h2 class="projects-title">Projects</h2>
 
-  <div class="wide-block">
+  <section class="wide-block">
     <h3>Driven Double Pendulum</h3>
 
-    <img class="wide-media"
-         src="double_pendulum_poster_screenshot.png"
-         alt="Driven double pendulum research poster">
-  </div>
+    <p>
+      When studying nonlinear and chaotic dynamics, researchers often turn to
+      numerical simulation instead of observing real systems. The double
+      pendulum is a classic chaotic system that is typically studied in this
+      way. Instead of relying solely on simulations, I designed and built an
+      instrumented, driven double pendulum to study the chaos of the living,
+      breathing system.
+    </p>
 
-  <div class="video-block">
-    <video class="project-video" controls preload="metadata">
-      <source src="double_pendulum_this_one.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
+    <h4>Apparatus Overview</h4>
 
-  <ul>
-    <li>Designed and built a driven chaotic double pendulum for experimental analysis.</li>
-    <li>Operated mills and lathes to make precision components.</li>
-    <li>Created a data acquisition system using encoders, photo interrupters, and LabVIEW.</li>
-    <li>Developing Python scripts for theoretical simulation and experimental data analysis.</li>
-    <li>Collaborating with faculty mentors to refine mechanical design and document findings.</li>
-  </ul>
+    <p>
+      The pendulum hangs in a frame built to handle violent motion. A stepper
+      motor drives the system using a Scotch Yoke mechanism that converts
+      rotation into the back-and-forth motion of the frame. The pendulum arms
+      can be swapped out and counterweights added to change the balance and
+      moments of inertia of the pendulum. Optical sensors measure the angular
+      positions of the arms, and a data acquisition system (DAQ) collects the
+      data and LabVIEW code displays it in real time. LabVIEW also calls
+      various Python scripts for file handling and additional data analysis.
+      The system is synchronized by a master clock from an oscilloscope that
+      controls both the DAQ and the stepper motor.
+    </p>
 
-  <p>
-    <strong>Tools:</strong> Mechanical design, machining, CAD, basic electronics, LabVIEW, Python, data acquisition, analytical dynamics modeling
-  </p>
+    <div class="image-placeholder">
+      Overall system picture
+    </div>
+
+    <details>
+      <summary>Frame</summary>
+
+      <div class="dropdown-content">
+        <p>
+          The frame is designed like a swing set with four legs that fit into
+          two vertical stands that support the bearings for the top shaft. The
+          swing set frame sits on an aluminum plate. The aluminum plate screws
+          onto an optical table that moves back and forth on the linear slides.
+          The aluminum plate can be removed with the pendulum intact so that
+          other systems can be attached to the shake table.
+        </p>
+
+        <div class="image-placeholder">
+          Frame pictures
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>Drive System</summary>
+
+      <div class="dropdown-content">
+        <p>
+          The stepper motor is belted to the drive shaft which turns the large
+          aluminum flywheel. Originally the Scotch yoke pin was mounted on a
+          simple crank arm, but the large flywheel gave the drive system more
+          rotational inertia to resist violent dynamic loads from the
+          pendulum. The flywheel has ten different mounting locations for the
+          drive pin, allowing us to quickly switch between drive amplitudes.
+        </p>
+
+        <div class="image-placeholder">
+          Pictures of drive system
+        </div>
+
+        <p>
+          If the stepper motor stalls or hiccups at all, it can completely
+          change the system’s trajectory. We use a photointerrupter to monitor
+          how consistent the drive is.
+        </p>
+
+        <div class="image-placeholder">
+          Video of photointerrupter with tab passing through it
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>Indexable Pendulum Arms</summary>
+
+      <div class="dropdown-content">
+        <p>
+          We made it easy to switch between different pendulum arms and add
+          counterweights. This allows us to study many different double
+          pendulum configurations without disassembling the entire apparatus.
+        </p>
+
+        <div class="image-placeholder">
+          Pictures of various configurations
+        </div>
+      </div>
+    </details>
+
+    <h4>Data Acquisition</h4>
+
+    <p>
+      The angular encoder for the upper arm simply mounts on the frame, but the
+      wiring for the lower arm’s encoder was more difficult because its
+      constant rotations can damage and twist wires. To solve this problem, I
+      mounted slip rings to the top shaft that maintain electrical contact
+      without damaging wires. I then milled out slots in the upper shaft and
+      upper arm to securely hold the wires in place.
+    </p>
+
+    <div class="image-placeholder">
+      Pictures of encoders and wiring slots
+    </div>
+
+    <p>
+      These encoders send signals to the counters on the DAQ and then to
+      LabVIEW to be decoded.
+    </p>
+
+    <h4>Code</h4>
+
+    <p>
+      LabVIEW is good at working with the DAQs, but Python is better at
+      automatic file handling and data analysis. I decided to use both.
+      LabVIEW receives the data from the DAQs, dejumps the angular data,
+      applies Savitsky-Golay and differentiation filters, wraps the angles, and
+      then displays the Poincare sections being built up in real time. LabVIEW
+      calls Python to ask the user for important information about the
+      experiment and automatically create, name, and store all necessary files
+      appropriately. After the experiment is finished, Python analyzes the
+      drive error readings from the photointerrupter to search for stalls. My
+      scripts also allow the user to analyze how the Poincare sections built up
+      over any interval in the experiment. If you want to see the Poincare
+      sections or error from a previous experimental run, you simply give my
+      script the run’s binary data file path and it will recreate the Poincare
+      sections and drive error graphs.
+    </p>
+
+    <div class="image-placeholder">
+      Pictures of LabVIEW code
+    </div>
+
+    <div class="image-placeholder">
+      Pictures of Python code
+    </div>
+
+    <h4>Master Clock</h4>
+
+    <p>
+      To synchronize the system, I used a single master clock to time our data
+      acquisition and drive the stepper motor. The stepper motor needs a signal
+      whose frequency is 32 times smaller than the data acquisition frequency,
+      so I made a circuit that divides the master clock frequency by 32.
+    </p>
+
+    <div class="image-placeholder">
+      Picture of oscilloscope output
+    </div>
+
+    <div class="image-placeholder">
+      Picture of divider circuit
+    </div>
+
+    <h4>Building the System</h4>
+
+    <p>
+      I was new to machining when I started this project, but in my hundreds
+      of hours working in the shop I have become confident with milling
+      machines, lathes, bandsaws, drill presses, and various other machines
+      like 3D printers and Dremel tools. I have learned a lot about various
+      operations including milling, turning, drilling, center drilling,
+      tapping, parting, counterboring, broaching, reaming, boring, and so on.
+      I have learned quite a bit of practical
+    </p>
+  </section>
 
   <br><br>
 
   <h3>CNC-Machined Pneumatic Motor</h3>
 
-  <img src="CNC_motor.jpg" width="500" alt="CNC-machined pneumatic air motor">
+  <img
+    src="CNC_motor.jpg"
+    width="500"
+    alt="CNC-machined pneumatic air motor"
+  >
 
   <p>
-    Generated CAM toolpaths and machined components for a pneumatic air motor using CNC milling,
-    followed by assembly and functional testing.
+    Generated CAM toolpaths and machined components for a pneumatic air motor
+    using CNC milling, followed by assembly and functional testing.
   </p>
 
   <ul>
-    <li>Generated CAM toolpaths for motor components using Fusion 360.</li>
-    <li>Set up and operated CNC mills.</li>
-    <li>Machined, assembled, and tested the air motor for functional operation.</li>
+    <li>
+      Generated CAM toolpaths for motor components using Fusion 360.
+    </li>
+    <li>
+      Set up and operated CNC mills.
+    </li>
+    <li>
+      Machined, assembled, and tested the air motor for functional operation.
+    </li>
   </ul>
 
   <p>
-    <strong>Tools:</strong> CAM (Fusion 360), CNC milling, manual machining, mechanical assembly
+    <strong>Tools:</strong>
+    CAM (Fusion 360), CNC milling, manual machining, mechanical assembly
   </p>
 
   <br><br>
@@ -132,21 +301,37 @@
   <h3>Spider Claw</h3>
 
   <p>
-    Worked with a small team to design and build a hydraulic robot arm for teaching mechanical advantage,
-    fluid power, and linkage-driven motion to grade-school students.
+    Worked with a small team to design and build a hydraulic robot arm for
+    teaching mechanical advantage, fluid power, and linkage-driven motion to
+    grade-school students.
   </p>
 
-  <img src="Spider_portfolio.jpg"
-       alt="Hydraulically actuated robotic arm demo"
-       style="max-width: 500px; width: 100%; height: auto; display: block; margin: 20px auto;">
+  <img
+    src="Spider_portfolio.jpg"
+    alt="Hydraulically actuated robotic arm demo"
+    style="
+      max-width: 500px;
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 20px auto;
+    "
+  >
 
   <ul>
-    <li>Fabricated and assembled multiple prototypes to test strength and reliability.</li>
-    <li>Designed and made final product within a limited budget, prioritizing simplicity and cost-effective materials.</li>
+    <li>
+      Fabricated and assembled multiple prototypes to test strength and
+      reliability.
+    </li>
+    <li>
+      Designed and made final product within a limited budget, prioritizing
+      simplicity and cost-effective materials.
+    </li>
   </ul>
 
   <p>
-    <strong>Tools:</strong> Mechanical design, prototyping, manual fabrication, basic fluid mechanics
+    <strong>Tools:</strong>
+    Mechanical design, prototyping, manual fabrication, basic fluid mechanics
   </p>
 
   <br><br>
@@ -154,12 +339,14 @@
   <h2>Acknowledgements</h2>
 
   <p>
-    I’m grateful to my teachers and mentors who supported these projects—especially those who
-    provided technical guidance, shop access, and feedback throughout the build process.
+    I’m grateful to my teachers and mentors who supported these
+    projects—especially those who provided technical guidance, shop access,
+    and feedback throughout the build process.
   </p>
 
   <p>
-    Their mentorship and kindness have been essential in my growth as an engineer.
+    Their mentorship and kindness have been essential in my growth as an
+    engineer.
   </p>
 
   <br><br>
@@ -167,8 +354,17 @@
   <h2>Contact</h2>
 
   <p>
-    Email: <a href="mailto:koob3090@stthomas.edu">koob3090@stthomas.edu</a><br>
-    LinkedIn: <a href="https://www.linkedin.com/in/mjkoob">linkedin.com/in/mjkoob</a><br>
+    Email:
+    <a href="mailto:koob3090@stthomas.edu">
+      koob3090@stthomas.edu
+    </a>
+    <br>
+
+    LinkedIn:
+    <a href="https://www.linkedin.com/in/mjkoob">
+      linkedin.com/in/mjkoob
+    </a>
+    <br>
   </p>
 </body>
 </html>
