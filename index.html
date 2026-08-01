@@ -36,7 +36,8 @@
       margin-top: 2rem;
     }
 
-    img, video {
+    img,
+    video {
       height: auto;
       border-radius: 8px;
       margin: 12px 0;
@@ -63,6 +64,15 @@
       margin: 24px auto;
       object-fit: contain;
       background-color: #000000;
+    }
+
+    .frame-image {
+      display: block;
+      width: auto;
+      max-width: 100%;
+      max-height: 500px;
+      margin: 20px auto;
+      object-fit: contain;
     }
 
     .image-placeholder {
@@ -155,9 +165,17 @@
           other systems can be attached to the shake table.
         </p>
 
-        <div class="image-placeholder">
-          Frame pictures
-        </div>
+        <img
+          class="frame-image"
+          src="Pendulum Frame.jpg"
+          alt="Driven double pendulum frame"
+        >
+
+        <img
+          class="frame-image"
+          src="Pendulum Foot.jpg"
+          alt="Foot of the driven double pendulum frame"
+        >
       </div>
     </details>
 
@@ -301,7 +319,9 @@
   <ul>
     <li>Generated CAM toolpaths for motor components using Fusion 360.</li>
     <li>Set up and operated CNC mills.</li>
-    <li>Machined, assembled, and tested the air motor for functional operation.</li>
+    <li>
+      Machined, assembled, and tested the air motor for functional operation.
+    </li>
   </ul>
 
   <p>
