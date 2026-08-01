@@ -55,10 +55,14 @@
       transform: translateX(-50%);
     }
 
-    .wide-media {
-      width: 100%;
-      max-width: none;
+    .pendulum-video {
       display: block;
+      width: 100%;
+      max-width: 700px;
+      max-height: 75vh;
+      margin: 24px auto;
+      object-fit: contain;
+      background-color: #000000;
     }
 
     .image-placeholder {
@@ -127,7 +131,7 @@
     </p>
 
     <video
-      class="wide-media"
+      class="pendulum-video"
       autoplay
       loop
       playsinline
