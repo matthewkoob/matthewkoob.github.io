@@ -36,7 +36,8 @@
       margin-top: 2rem;
     }
 
-    img, video {
+    img,
+    video {
       height: auto;
       border-radius: 8px;
       margin: 12px 0;
@@ -52,6 +53,12 @@
       max-width: none;
       margin-left: 50%;
       transform: translateX(-50%);
+    }
+
+    .wide-media {
+      width: 100%;
+      max-width: none;
+      display: block;
     }
 
     .image-placeholder {
@@ -119,9 +126,17 @@
       controls both the DAQ and the stepper motor.
     </p>
 
-    <div class="image-placeholder">
-      Overall system picture
-    </div>
+    <video
+      class="wide-media"
+      autoplay
+      loop
+      playsinline
+      controls
+      preload="auto"
+    >
+      <source src="Pendulum_video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
 
     <details>
       <summary>Frame</summary>
@@ -283,9 +298,11 @@
     <li>
       Generated CAM toolpaths for motor components using Fusion 360.
     </li>
+
     <li>
       Set up and operated CNC mills.
     </li>
+
     <li>
       Machined, assembled, and tested the air motor for functional operation.
     </li>
@@ -323,6 +340,7 @@
       Fabricated and assembled multiple prototypes to test strength and
       reliability.
     </li>
+
     <li>
       Designed and made final product within a limited budget, prioritizing
       simplicity and cost-effective materials.
