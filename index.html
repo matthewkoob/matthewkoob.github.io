@@ -81,7 +81,8 @@
     .drive-image,
     .photointerrupter-image,
     .arm-image,
-    .data-acquisition-image {
+    .data-acquisition-image,
+    .timing-image {
       display: block;
       width: auto;
       max-width: 100%;
@@ -340,22 +341,31 @@
       Pictures of Python code
     </div>
 
-    <h4>Master Clock</h4>
+    <details>
+      <summary>System Timing</summary>
 
-    <p>
-      To synchronize the system, I used a single master clock to time our data
-      acquisition and drive the stepper motor. The stepper motor needs a signal
-      whose frequency is 32 times smaller than the data acquisition frequency,
-      so I made a circuit that divides the master clock frequency by 32.
-    </p>
+      <div class="dropdown-content">
+        <p>
+          To synchronize the system, I used a single master clock to time our
+          data acquisition and drive the stepper motor. The stepper motor needs
+          a signal whose frequency is 32 times smaller than the data acquisition
+          frequency, so I made a circuit that divides the master clock
+          frequency by 32.
+        </p>
 
-    <div class="image-placeholder">
-      Picture of oscilloscope output
-    </div>
+        <img
+          class="timing-image"
+          src="Oscilloscope.jpg"
+          alt="Oscilloscope displaying the system timing signals"
+        >
 
-    <div class="image-placeholder">
-      Picture of divider circuit
-    </div>
+        <img
+          class="timing-image"
+          src="Divider Circuit.jpg"
+          alt="Frequency-divider circuit used for system timing"
+        >
+      </div>
+    </details>
 
     <h4>Building the System</h4>
 
