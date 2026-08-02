@@ -80,7 +80,8 @@
     .frame-image,
     .drive-image,
     .photointerrupter-image,
-    .arm-image {
+    .arm-image,
+    .data-acquisition-image {
       display: block;
       width: auto;
       max-width: 100%;
@@ -274,25 +275,43 @@
       </div>
     </details>
 
-    <h4>Data Acquisition</h4>
+    <details>
+      <summary>Data Acquisition</summary>
 
-    <p>
-      The angular encoder for the upper arm simply mounts on the frame, but the
-      wiring for the lower arm’s encoder was more difficult because its
-      constant rotations can damage and twist wires. To solve this problem, I
-      mounted slip rings to the top shaft that maintain electrical contact
-      without damaging wires. I then milled out slots in the upper shaft and
-      upper arm to securely hold the wires in place.
-    </p>
+      <div class="dropdown-content">
+        <p>
+          The angular encoder for the upper arm simply mounts on the frame, but
+          the wiring for the lower arm’s encoder was more difficult because its
+          constant rotations can damage and twist wires. To solve this problem,
+          I mounted slip rings to the top shaft that maintain electrical contact
+          without damaging wires. I then milled out slots in the upper shaft and
+          upper arm to securely hold the wires in place.
+        </p>
 
-    <div class="image-placeholder">
-      Pictures of encoders and wiring slots
-    </div>
+        <img
+          class="data-acquisition-image"
+          src="Arm Wiring.jpg"
+          alt="Wiring routed through the double pendulum arm"
+        >
 
-    <p>
-      These encoders send signals to the counters on the DAQ and then to
-      LabVIEW to be decoded.
-    </p>
+        <img
+          class="data-acquisition-image"
+          src="Upper Encoder.jpg"
+          alt="Upper-arm angular encoder mounted on the pendulum frame"
+        >
+
+        <p>
+          These encoders send signals to the counters on the DAQs and then to
+          LabVIEW to be decoded.
+        </p>
+
+        <img
+          class="data-acquisition-image"
+          src="DAQs.jpg"
+          alt="Data acquisition systems used to collect the encoder signals"
+        >
+      </div>
+    </details>
 
     <h4>Code</h4>
 
