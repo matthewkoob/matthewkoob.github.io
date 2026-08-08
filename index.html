@@ -104,6 +104,20 @@
       object-fit: contain;
     }
 
+    .image-placeholder {
+      min-height: 220px;
+      margin: 20px 0;
+      border: 2px dashed #666666;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      color: #aaaaaa;
+      text-align: center;
+      background-color: #191919;
+    }
+
     details {
       margin: 20px 0;
       border: 1px solid #383838;
@@ -140,19 +154,19 @@
       breathing system.
     </p>
 
-    <h4>Apparatus Overview</h4>
+    <h4 style="text-align: center;">Apparatus Overview</h4>
 
     <p>
-      The pendulum hangs in a frame built to handle violent motion. A stepper
-      motor drives the system using a Scotch Yoke mechanism that converts
-      rotation into the back-and-forth motion of the frame. The pendulum arms
-      can be swapped out and counterweights added to change the balance and
-      moments of inertia of the pendulum. Optical sensors measure the angular
-      positions of the arms, and a data acquisition system (DAQ) collects the
-      data and LabVIEW code displays it in real time. LabVIEW also calls
-      various Python scripts for file handling and additional data analysis.
-      The system is synchronized by a master clock from an oscilloscope that
-      controls both the DAQ and the stepper motor.
+      The pendulum hangs in a frame built to handle its violent motion. A
+      stepper motor drives the system using a Scotch Yoke mechanism that
+      converts rotation into the back-and-forth motion of the frame. The
+      pendulum arms can be swapped out and counterweights added to change the
+      balance and moments of inertia of the pendulum. Optical sensors measure
+      the angular positions of the arms, and a data acquisition system (DAQ)
+      collects the data and LabVIEW code displays it in real time. LabVIEW also
+      calls various Python scripts for file handling and additional data
+      analysis. The system is synchronized by a master clock that controls both
+      the DAQ and the stepper motor.
     </p>
 
     <video
