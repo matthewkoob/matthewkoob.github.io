@@ -77,6 +77,17 @@
       background-color: #000000;
     }
 
+    .simulation-video {
+      display: block;
+      width: auto;
+      max-width: 100%;
+      height: 500px;
+      max-height: 65vh;
+      margin: 24px auto;
+      object-fit: contain;
+      background-color: #000000;
+    }
+
     .frame-image,
     .drive-image,
     .photointerrupter-image,
@@ -366,7 +377,7 @@
     </details>
 
     <details>
-      <summary>Code</summary>
+      <summary>Experimental Code</summary>
 
       <div class="dropdown-content">
         <p>
@@ -397,6 +408,32 @@
           src="Data Analysis DP.png"
           alt="Double pendulum experimental data analysis"
         >
+      </div>
+    </details>
+
+    <details>
+      <summary>Theoretical Code</summary>
+
+      <div class="dropdown-content">
+        <p>
+          I derived the equations of motion for the driven damped double
+          pendulum and used them to simulate its behavior. My simulation code
+          allows the user to choose a pendulum setup and then shows an animation
+          of the pendulum's theoretical motion and the corresponding theoretical
+          Poincare sections.
+        </p>
+
+        <video
+          class="simulation-video"
+          autoplay
+          loop
+          playsinline
+          controls
+          preload="auto"
+        >
+          <source src="DP Simulation Animation.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </div>
     </details>
   </section>
