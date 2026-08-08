@@ -118,6 +118,13 @@
       background-color: #191919;
     }
 
+    .disclaimer {
+      padding: 14px 18px;
+      border-left: 4px solid #7db4ff;
+      border-radius: 4px;
+      background-color: #181818;
+    }
+
     details {
       margin: 20px 0;
       border: 1px solid #383838;
@@ -185,13 +192,14 @@
       <summary>Frame</summary>
 
       <div class="dropdown-content">
-<p>
-  The frame is designed like a swing set with four legs fitting into two
-  vertical stands that support the top shaft’s bearings. The swing set frame
-  sits on an aluminum plate, which screws onto another plate mounted on the
-  linear slides. The aluminum plate can be removed with the pendulum intact so
-  that other systems can be attached to the drive table.
-</p>
+        <p>
+          The frame is designed like a swing set with four legs fitting into two
+          vertical stands that support the top shaft’s bearings. The swing set
+          frame sits on an aluminum plate, which screws onto another plate
+          mounted on the linear slides. The aluminum plate can be removed with
+          the pendulum intact so that other systems can be attached to the drive
+          table.
+        </p>
 
         <img
           class="frame-image"
@@ -212,12 +220,12 @@
 
       <div class="dropdown-content">
         <p>
-          A stepper motor is belted to a drive shaft that turns the large
+          The stepper motor is belted to the drive shaft which turns the large
           aluminum flywheel. Originally the Scotch yoke pin was mounted on a
           simple crank arm, but the large flywheel gave the drive system more
-          rotational inertia to resist the violent dynamic loads of the
+          rotational inertia to resist violent dynamic loads from the
           pendulum. The flywheel has ten different mounting locations for the
-          drive pin, allowing me to quickly switch between drive amplitudes.
+          drive pin, allowing us to quickly switch between drive amplitudes.
         </p>
 
         <img
@@ -240,7 +248,8 @@
 
         <p>
           If the stepper motor stalls or hiccups at all, it can completely
-          change the system’s trajectory. I use a photointerrupter to monitor drive error. 
+          change the system’s trajectory. We use a photointerrupter to monitor
+          how consistent the drive is.
         </p>
 
         <img
@@ -268,8 +277,8 @@
 
       <div class="dropdown-content">
         <p>
-          I made it easy to switch between different pendulum arms and add
-          counterweights. This allows me to study many different double
+          We made it easy to switch between different pendulum arms and add
+          counterweights. This allows us to study many different double
           pendulum configurations without disassembling the entire apparatus.
         </p>
 
@@ -293,8 +302,8 @@
       <div class="dropdown-content">
         <p>
           The angular encoder for the upper arm simply mounts on the frame, but
-          the wiring for the lower arm’s encoder was more difficult because
-          constant rotations can twist and damage wires. To solve this problem,
+          the wiring for the lower arm’s encoder was more difficult because its
+          constant rotations can damage and twist wires. To solve this problem,
           I mounted slip rings to the top shaft that maintain electrical contact
           without damaging wires. I then milled out slots in the upper shaft and
           upper arm to securely hold the wires in place.
@@ -313,8 +322,8 @@
         >
 
         <p>
-          These encoders send signals to the counters on the DAQs, which then send them to
-          LabVIEW for decoding. 
+          These encoders send signals to the counters on the DAQs and then to
+          LabVIEW to be decoded.
         </p>
 
         <img
@@ -358,9 +367,11 @@
         <p>
           I was new to machining when I started this project, but in my hundreds
           of hours working in the shop I have become confident with milling
-          machines, lathes, bandsaws, drill presses, and 3D printers. I have learned a lot about various
+          machines, lathes, bandsaws, drill presses, and various other machines
+          like 3D printers and Dremel tools. I have learned a lot about various
           operations including milling, turning, drilling, center drilling,
-          tapping, parting, counterboring, broaching, reaming, boring, and many others. I have gained practical wisdom about how to make these processes
+          tapping, parting, counterboring, broaching, reaming, boring, and so
+          on. I have gained practical wisdom about how to make these processes
           work well and where they commonly go wrong.
         </p>
 
@@ -379,17 +390,17 @@
         <p>
           LabVIEW is good at working with the DAQs, but Python is better at
           automatic file handling and data analysis. I decided to use both.
-          LabVIEW receives the data from the DAQs, phase unwraps the angular data,
-          applies Savitzky-Golay and differentiation filters, wraps the angles,
+          LabVIEW receives the data from the DAQs, dejumps the angular data,
+          applies Savitsky-Golay and differentiation filters, wraps the angles,
           and then displays the Poincare sections being built up in real time.
           LabVIEW calls Python to ask the user for important information about
           the experiment and automatically create, name, and store all necessary
           files appropriately. After the experiment is finished, Python analyzes
           the drive error readings from the photointerrupter to search for
-          stalls. My scripts also allow me to analyze how the Poincare
-          sections built up over any interval in the experiment. If I want to
+          stalls. My scripts also allow the user to analyze how the Poincare
+          sections built up over any interval in the experiment. If you want to
           see the Poincare sections or error from a previous experimental run,
-          I give my script the run’s binary data file path and it will
+          you simply give my script the run’s binary data file path and it will
           recreate the Poincare sections and drive error graphs.
         </p>
 
@@ -442,6 +453,82 @@
           src="Lower Simulated Poincare.png"
           alt="Theoretical Poincare section for the lower pendulum arm"
         >
+      </div>
+    </details>
+  </section>
+
+  <br><br>
+
+  <section class="wide-block">
+    <h3>Magnetic Single Pendulum</h3>
+
+    <p class="disclaimer">
+      <strong>Disclaimer:</strong>
+      I did not contribute to the mechanical design or fabrication of this
+      system. The magnetic pendulum was passed down to me by previous students.
+    </p>
+
+    <p>
+      The single magnetic pendulum is driven by inducing eddy currents in a
+      flywheel attached to the pendulum’s shaft. The single pendulum uses an
+      angular encoder and DAQs to collect data.
+    </p>
+
+    <details>
+      <summary>Automatic Data Organization</summary>
+
+      <div class="dropdown-content">
+        <p>
+          The researchers before me had written LabVIEW code for this system but
+          did not add an automatic organization system for their data. The
+          original code prompted the user to enter file names and locations and
+          had no clear, concise naming convention for data files. I built in a
+          Python script that prompts the user to enter all relevant information
+          about an experimental run. It then automatically names, creates, and
+          stores all the files needed for the experiment. This change has kept
+          my experimental data sets rigorously organized instead of letting them
+          become frustrating jumbles of mystery files.
+        </p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Power Supply Monitoring</summary>
+
+      <div class="dropdown-content">
+        <p>
+          The magnetic pendulum system uses multiple power supplies. I figured
+          out how to connect them to LabVIEW and made it so my code records each
+          power supply’s voltage and current every so often.
+        </p>
+      </div>
+    </details>
+
+    <details>
+      <summary>3D-Printed Shock Protector</summary>
+
+      <div class="dropdown-content">
+        <p>
+          The power supply for the stepper motor runs at a high voltage, and its
+          terminals were not sufficiently covered. I designed and 3D printed a
+          hood that covers the terminals and makes the power supply safer to
+          work with.
+        </p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Chaotic Structure Animations</summary>
+
+      <div class="dropdown-content">
+        <p>
+          A Poincare section is created by plotting the pendulum’s state at the
+          same time every drive cycle. If I sample at a different point in the
+          drive cycle, I get a different Poincare section, so I can use these
+          various sections as frames for an animation. This allows me to see how
+          the chaotic structures morph and flow as I move through Poincare
+          phases.
+        </p>
       </div>
     </details>
   </section>
