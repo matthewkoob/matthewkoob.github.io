@@ -1,4 +1,4 @@
-\<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -95,6 +95,17 @@
       height: 500px;
       max-height: 65vh;
       margin: 24px auto;
+      object-fit: contain;
+      background-color: #000000;
+    }
+
+    .structure-animation-video {
+      display: block;
+      width: auto;
+      max-width: 100%;
+      height: 500px;
+      max-height: 65vh;
+      margin: 24px auto 0;
       object-fit: contain;
       background-color: #000000;
     }
@@ -552,6 +563,22 @@
           the chaotic structures morph and flow as I move through Poincare
           phases.
         </p>
+
+        <video
+          class="structure-animation-video"
+          autoplay
+          loop
+          muted
+          playsinline
+          controls
+          preload="metadata"
+        >
+          <source
+            src="Poincare_Animation_Compressed.mp4"
+            type="video/mp4"
+          >
+          Your browser does not support the video tag.
+        </video>
       </div>
     </details>
   </section>
